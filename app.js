@@ -1,6 +1,6 @@
 
+const RecipeApp = (() => {
 // Part 2: Filtering and Sorting implemented
-
 // Recipe data - Foundation for all 4 parts
 const recipes = [
     {
@@ -9,7 +9,31 @@ const recipes = [
         time: 25,
         difficulty: "easy",
         description: "A creamy Italian pasta dish made with eggs, cheese, pancetta, and black pepper.",
-        category: "pasta"
+        category: "pasta",
+        ingredients: [
+            "400g spaghetti",
+            "200g pancetta",
+            "4 eggs",
+            "100g Pecorino Romano",
+            "Black pepper",
+            "Salt"
+        ],
+        steps: [
+            "Boil salted water and cook spaghetti",
+            {
+                text: "Prepare the sauce",
+                substeps: [
+                    "Beat eggs in a bowl",
+                    "Add grated cheese",
+                    "Add black pepper",
+                    "Mix well"
+                ]
+            },
+            "Cook pancetta until crispy",
+            "Combine pasta with pancetta",
+            "Remove from heat and mix in egg mixture",
+            "Serve immediately"
+        ]
     },
     {
         id: 2,
@@ -17,7 +41,30 @@ const recipes = [
         time: 45,
         difficulty: "medium",
         description: "Tender chicken pieces in a creamy, spiced tomato sauce.",
-        category: "curry"
+        category: "curry",
+        ingredients: [
+            "500g chicken",
+            "Yogurt",
+            "Tomato puree",
+            "Garlic",
+            "Garam masala",
+            "Cream"
+        ],
+        steps: [
+            {
+                text: "Marinate the chicken",
+                substeps: [
+                    "Mix yogurt and spices",
+                    "Add chicken pieces",
+                    "Refrigerate for 30 minutes"
+                ]
+            },
+            "Cook chicken until browned",
+            "Prepare masala sauce in separate pan",
+            "Combine chicken with sauce",
+            "Simmer for 15 minutes",
+            "Add cream and serve"
+        ]
     },
     {
         id: 3,
@@ -25,7 +72,30 @@ const recipes = [
         time: 180,
         difficulty: "hard",
         description: "Buttery, flaky French pastries that require patience but deliver amazing results.",
-        category: "baking"
+        category: "baking",
+        ingredients: [
+            "Flour",
+            "Butter",
+            "Milk",
+            "Sugar",
+            "Yeast",
+            "Salt"
+        ],
+        steps: [
+            "Prepare dough and let it rise",
+            {
+                text: "Laminate the dough",
+                substeps: [
+                    "Roll dough flat",
+                    "Add butter layer",
+                    "Fold into thirds",
+                    "Repeat rolling and folding 3 times"
+                ]
+            },
+            "Shape croissants",
+            "Let them proof",
+            "Bake until golden brown"
+        ]
     },
     {
         id: 4,
@@ -33,7 +103,22 @@ const recipes = [
         time: 15,
         difficulty: "easy",
         description: "Fresh vegetables, feta cheese, and olives tossed in olive oil and herbs.",
-        category: "salad"
+        category: "salad",
+        ingredients: [
+            "Tomatoes",
+            "Cucumber",
+            "Red onion",
+            "Feta cheese",
+            "Olives",
+            "Olive oil"
+        ],
+        steps: [
+            "Chop vegetables",
+            "Combine in a large bowl",
+            "Add feta and olives",
+            "Drizzle olive oil",
+            "Toss gently and serve"
+        ]
     },
     {
         id: 5,
@@ -41,7 +126,30 @@ const recipes = [
         time: 120,
         difficulty: "hard",
         description: "Tender beef fillet coated with mushroom duxelles and wrapped in puff pastry.",
-        category: "meat"
+        category: "meat",
+        ingredients: [
+            "Beef fillet",
+            "Mushrooms",
+            "Puff pastry",
+            "Eggs",
+            "Mustard",
+            "Prosciutto"
+        ],
+        steps: [
+            "Sear beef fillet",
+            {
+                text: "Prepare mushroom duxelles",
+                substeps: [
+                    "Finely chop mushrooms",
+                    "Cook until moisture evaporates",
+                    "Season with salt and pepper"
+                ]
+            },
+            "Wrap beef with prosciutto and mushrooms",
+            "Cover with puff pastry",
+            "Brush with egg wash",
+            "Bake until golden"
+        ]
     },
     {
         id: 6,
@@ -49,7 +157,23 @@ const recipes = [
         time: 20,
         difficulty: "easy",
         description: "Colorful mixed vegetables cooked quickly in a savory sauce.",
-        category: "vegetarian"
+        category: "vegetarian",
+        ingredients: [
+            "Bell peppers",
+            "Broccoli",
+            "Carrots",
+            "Soy sauce",
+            "Garlic",
+            "Ginger"
+        ],
+        steps: [
+            "Heat oil in a wok",
+            "Add garlic and ginger",
+            "Add vegetables",
+            "Stir fry for 5–7 minutes",
+            "Add soy sauce",
+            "Serve hot"
+        ]
     },
     {
         id: 7,
@@ -57,7 +181,30 @@ const recipes = [
         time: 30,
         difficulty: "medium",
         description: "Thai stir-fried rice noodles with shrimp, peanuts, and tangy tamarind sauce.",
-        category: "noodles"
+        category: "noodles",
+        ingredients: [
+            "Rice noodles",
+            "Shrimp",
+            "Eggs",
+            "Tamarind paste",
+            "Bean sprouts",
+            "Peanuts"
+        ],
+        steps: [
+            "Soak rice noodles",
+            "Cook shrimp in a pan",
+            {
+                text: "Prepare sauce",
+                substeps: [
+                    "Mix tamarind paste",
+                    "Add fish sauce",
+                    "Add sugar and lime juice"
+                ]
+            },
+            "Combine noodles, shrimp and sauce",
+            "Add egg and scramble",
+            "Top with peanuts and serve"
+        ]
     },
     {
         id: 8,
@@ -65,13 +212,68 @@ const recipes = [
         time: 60,
         difficulty: "medium",
         description: "Classic Italian pizza with fresh mozzarella, tomatoes, and basil.",
-        category: "pizza"
+        category: "pizza",
+        ingredients: [
+            "Pizza dough",
+            "Tomato sauce",
+            "Fresh mozzarella",
+            "Fresh basil",
+            "Olive oil"
+        ],
+        steps: [
+            "Preheat oven",
+            "Roll out dough",
+            "Spread tomato sauce",
+            "Add mozzarella",
+            "Bake until crust is golden",
+            "Top with fresh basil and serve"
+        ]
     }
-    // TODO: Add 6 more recipe objects following the same structure
 ];
-// DOM Selection - Get the container where recipes will be displayed
+    
+// DOM Selection - Get the container where recipes will be displayed //
 const recipeContainer = document.querySelector('#recipe-container');
 console.log(recipeContainer);
+// Recursive function to render steps (handles nesting)
+const renderSteps = (steps, level = 0) => {
+    // Determine the CSS class based on nesting level
+    const listClass = level === 0 ? 'steps-list' : 'substeps-list';
+    
+    let html = `<ol class="${listClass}">`;
+    
+    steps.forEach(step => {
+        // TODO: Check if step is a string or object
+        if (typeof step === 'string') {
+            // Simple step - just add as list item
+            html += `<li>${step}</li>`;
+        } else {
+            // Nested step - has text and substeps
+            html += `<li>`;
+            html += step.text;  // Main step text
+            
+            // TODO: Recursively call renderSteps for substeps
+            if (step.substeps && step.substeps.length > 0) {
+                // RECURSIVE CALL - this is the key!
+                html += renderSteps(step.substeps, level + 1);
+            }
+            
+            html += `</li>`;
+        }
+    });
+    
+    html += `</ol>`;
+    return html;
+};
+// Create complete steps HTML for a recipe
+const createStepsHTML = (steps) => {
+    // TODO: Check if steps exist
+    if (!steps || steps.length === 0) {
+        return '<p>No steps available</p>';
+    }
+    
+    // Call the recursive function to generate the nested list
+    return renderSteps(steps);
+};
 // Function to create HTML for a single recipe card
 const createRecipeCard = (recipe) => {
     return `
@@ -82,6 +284,30 @@ const createRecipeCard = (recipe) => {
                 <span class="difficulty ${recipe.difficulty}">${recipe.difficulty}</span>
             </div>
             <p>${recipe.description}</p>
+            
+            <!-- NEW: Toggle Buttons -->
+            <div class="card-actions">
+                <button class="toggle-btn" data-recipe-id="${recipe.id}" data-toggle="steps">
+                    📋 Show Steps
+                </button>
+                <button class="toggle-btn" data-recipe-id="${recipe.id}" data-toggle="ingredients">
+                    🥗 Show Ingredients
+                </button>
+            </div>
+            
+            <!-- NEW: Ingredients Section (hidden by default) -->
+            <div class="ingredients-container" data-recipe-id="${recipe.id}">
+                <h4>Ingredients:</h4>
+                <ul>
+                    ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <!-- NEW: Steps Section (hidden by default) -->
+            <div class="steps-container" data-recipe-id="${recipe.id}">
+                <h4>Cooking Steps:</h4>
+                ${createStepsHTML(recipe.steps)}
+            </div>
         </div>
     `;
 };
@@ -241,29 +467,68 @@ const handleSortClick = (event) => {
     updateActiveButtons();
     updateDisplay();
 };
+// Handle toggle button clicks using event delegation
+const handleToggleClick = (event) => {
+    // Check if clicked element is a toggle button
+    if (!event.target.classList.contains('toggle-btn')) {
+        return;  // Not a toggle button, ignore
+    }
+    
+    const button = event.target;
+    const recipeId = button.dataset.recipeId;
+    const toggleType = button.dataset.toggle;  // "steps" or "ingredients"
+    
+    // TODO: Find the corresponding container
+    const containerClass = toggleType === 'steps' ? 'steps-container' : 'ingredients-container';
+    const container = document.querySelector(`.${containerClass}[data-recipe-id="${recipeId}"]`);
+    
+    // TODO: Toggle visibility
+    if (container) {
+        container.classList.toggle('visible');
+        
+        // Update button text
+        const isVisible = container.classList.contains('visible');
+        if (toggleType === 'steps') {
+            button.textContent = isVisible ? '📋 Hide Steps' : '📋 Show Steps';
+        } else {
+            button.textContent = isVisible ? '🥗 Hide Ingredients' : '🥗 Show Ingredients';
+        }
+    }
+};
 // ============================================
 // EVENT LISTENER SETUP
 // ============================================
 
+
 const setupEventListeners = () => {
-    // Attach click handlers to all filter buttons
+    // From Part 2 - filter buttons
     filterButtons.forEach(btn => {
         btn.addEventListener('click', handleFilterClick);
     });
     
-    // Attach click handlers to all sort buttons
+    // From Part 2 - sort buttons
     sortButtons.forEach(btn => {
         btn.addEventListener('click', handleSortClick);
     });
     
+    // NEW: Event delegation for toggle buttons
+    // One listener on parent handles all toggle buttons
+    recipeContainer.addEventListener('click', handleToggleClick);
+    
     console.log('Event listeners attached!');
 };
-// ============================================
-// INITIALIZATION
-// ============================================
 
-// Set up event listeners on page load
-setupEventListeners();
+const init = () => {
+    setupEventListeners();
+    updateDisplay();
+};
+
+return {
+    init
+};
+
+})();
+RecipeApp.init();
 
 // Initial render with default filter/sort
 updateDisplay();
