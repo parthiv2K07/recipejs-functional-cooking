@@ -93,3 +93,77 @@ main {
     background-color: #f8d7da;
     color: #721c24;
 }
+/* Controls Section */
+.controls {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filter-group,
+.sort-group {
+    margin-bottom: 1.5rem;
+}
+
+.filter-group:last-child,
+.sort-group:last-child {
+    margin-bottom: 0;
+}
+
+.controls h3 {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* Filter and Sort Buttons */
+.filter-btn,
+.sort-btn {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.sort-btn:hover {
+    background: #f0f2ff;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active,
+.sort-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+.filter-btn:active,
+.sort-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .filter-btn,
+    .sort-btn {
+        width: 100%;
+    }
+}
