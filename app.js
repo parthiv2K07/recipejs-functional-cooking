@@ -1,6 +1,7 @@
+
 const RecipeApp = (() => {
-
-
+// Part 2: Filtering and Sorting implemented
+// Recipe data - Foundation for all 4 parts
 const recipes = [
     {
         id: 1,
@@ -527,5 +528,9 @@ return {
 };
 
 })();
-
 RecipeApp.init();
+
+// Initial render with default filter/sort
+updateDisplay();
+
+
