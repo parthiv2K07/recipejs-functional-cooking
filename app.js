@@ -1,3 +1,6 @@
+
+// Part 2: Filtering and Sorting implemented
+
 // Recipe data - Foundation for all 4 parts
 const recipes = [
     {
@@ -264,3 +267,5 @@ setupEventListeners();
 
 // Initial render with default filter/sort
 updateDisplay();
+
+
